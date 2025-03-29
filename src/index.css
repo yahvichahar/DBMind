@@ -1,0 +1,144 @@
+/* Combined and adapted styles from style.css and auth.css */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    #root {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* --- Auth Page Styles --- */
+    .auth-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .auth-form {
+      background-color: #252526;
+      padding: 30px 40px;
+      border-radius: 8px;
+      border: 1px solid #3a3a3a;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .auth-form h2 {
+      text-align: center; margin-top: 0; margin-bottom: 25px; color: #d4d4d4;
+    }
+
+    .auth-form .form-group { margin-bottom: 20px; }
+    .auth-form .form-group label { display: block; margin-bottom: 8px; font-size: 0.95em; color: #aaaaaa; }
+    .auth-form .form-group input {
+      width: 100%; padding: 10px 12px; border: 1px solid #555; border-radius: 4px;
+      background-color: #3c3c3c; color: #d4d4d4; font-size: 1em; box-sizing: border-box;
+    }
+    .auth-form .form-group input:focus { outline: none; border-color: #007acc; }
+
+    .auth-form button[type="submit"] {
+      width: 100%; padding: 12px 20px; background-color: #007acc; color: white; border: none;
+      border-radius: 4px; cursor: pointer; font-size: 1.1em; transition: background-color 0.2s ease; margin-top: 10px;
+    }
+    .auth-form button[type="submit"]:hover { background-color: #005fa3; }
+
+    .auth-switch { text-align: center; margin-top: 25px; font-size: 0.9em; color: #aaaaaa; }
+    .auth-switch span { cursor: pointer; color: #00aaff; text-decoration: none; }
+    .auth-switch span:hover { text-decoration: underline; }
+
+    .error-message {
+      background-color: #5c2121; color: #f5c6cb; border: 1px solid #f5c6cb; padding: 10px;
+      border-radius: 4px; margin-bottom: 15px; text-align: center; font-size: 0.9em;
+    }
+
+    /* --- Main App Styles --- */
+    .app-container {
+      position: relative; display: flex; width: 95vw; height: 90vh; max-width: 1400px; max-height: 850px;
+      background-color: #252526; border: 1px solid #3a3a3a; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); overflow: hidden;
+    }
+
+    /* Account Indicator & Dropdown Styles */
+    .account-indicator {
+      position: absolute; top: 15px; right: 20px; width: 36px; height: 36px; background-color: #007acc; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 10; color: #ffffff; font-weight: bold; font-size: 0.9em;
+    }
+    .account-initials { user-select: none; }
+    .account-dropdown-content {
+      /* display: none; /* Controlled by state */
+      position: absolute; background-color: #333333; min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+      border: 1px solid #555; border-radius: 4px; padding: 10px 0; z-index: 11; top: 115%; right: 0;
+    }
+    .account-email-display { padding: 8px 16px; font-size: 0.9em; color: #cccccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .account-dropdown-content hr { border: none; height: 1px; background-color: #555; margin: 8px 0; }
+    .account-dropdown-content button.logout-button {
+      background: none; border: none; color: #d4d4d4; padding: 8px 16px; text-decoration: none; display: block; font-size: 0.9em; width: 100%; text-align: left; cursor: pointer;
+    }
+    .account-dropdown-content button.logout-button:hover { background-color: #4a4a4a; }
+
+    /* Connection Panel Styles */
+    .connection-panel {
+      width: 280px; flex-shrink: 0; padding: 20px; padding-top: 60px; background-color: #333333;
+      border-right: 1px solid #3a3a3a; display: flex; flex-direction: column; color: #cccccc; box-sizing: border-box;
+    }
+    .connection-panel h2 { text-align: center; margin-top: 0; margin-bottom: 25px; font-size: 1.3em; color: #d4d4d4; }
+    .connection-panel .form-group { margin-bottom: 15px; }
+    .connection-panel .form-group label { display: block; margin-bottom: 5px; font-size: 0.9em; color: #aaaaaa; }
+    .connection-panel .form-group input { width: 100%; padding: 8px 10px; border: 1px solid #555; border-radius: 4px; background-color: #3c3c3c; color: #d4d4d4; font-size: 0.95em; box-sizing: border-box; }
+    .connection-panel .form-group input:focus { outline: none; border-color: #007acc; }
+    .connection-panel .connect-button { width: 100%; padding: 12px 20px; background-color: #007acc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; transition: background-color 0.2s ease; margin-top: 10px; }
+    .connection-panel .connect-button:hover:not(:disabled) { background-color: #005fa3; }
+    .connection-panel .connect-button:disabled { background-color: #555; cursor: not-allowed; }
+    .connection-status { margin-top: 20px; text-align: center; font-size: 0.9em; color: #aaaaaa; }
+    .connection-status.connected { color: #4CAF50; font-weight: bold; }
+    .connection-status.error { color: #F44336; font-weight: bold; }
+    .connection-status.connecting { color: #ffc107; } /* Yellow for connecting */
+
+
+    /* Chat Container Styles */
+    .chat-container { flex-grow: 1; display: flex; flex-direction: column; height: 100%; background-color: #252526; transition: opacity 0.3s ease; }
+    .chat-container.disabled { opacity: 0.6; pointer-events: none; }
+    .chat-header { background-color: #333333; color: #cccccc; padding: 15px; font-size: 1.2em; font-weight: bold; text-align: center; border-bottom: 1px solid #3a3a3a; flex-shrink: 0; }
+    .chat-messages { flex-grow: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; /* justify-content: center; align-items: center; */ gap: 12px; scrollbar-width: thin; scrollbar-color: #555 #252526; }
+    .chat-messages::-webkit-scrollbar { width: 8px; }
+    .chat-messages::-webkit-scrollbar-track { background: #252526; }
+    .chat-messages::-webkit-scrollbar-thumb { background-color: #555; border-radius: 4px; border: 2px solid #252526; }
+    .chat-messages.is-empty { /* Styles to center welcome screen */
+       justify-content: center;
+       align-items: center;
+    }
+
+    /* Welcome Screen Styles */
+    .welcome-screen { display: flex; justify-content: space-around; align-items: flex-start; width: 90%; max-width: 800px; padding: 20px 0; gap: 20px; text-align: center; }
+    .category-column { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    .category-title { font-size: 1.1em; font-weight: bold; margin-bottom: 10px; color: #d4d4d4; }
+    .info-box, .example-button { background-color: #3c3c3c; color: #cccccc; padding: 12px 15px; border-radius: 8px; width: 100%; max-width: 220px; font-size: 0.9em; line-height: 1.4; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); text-align: center; box-sizing: border-box; }
+    .example-button { cursor: pointer; border: none; transition: background-color 0.2s ease; }
+    .example-button:hover:not(:disabled) { background-color: #4a4a4a; }
+    .example-button:disabled { cursor: not-allowed; opacity: 0.7; }
+
+    /* Message Styles */
+    .message { padding: 10px 15px; border-radius: 18px; max-width: 90%; word-wrap: break-word; line-height: 1.4; white-space: pre-wrap; font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; font-size: 0.95em; align-self: flex-start; }
+    .user-message { background-color: #007acc; color: #ffffff; align-self: flex-end; border-bottom-right-radius: 4px; max-width: 75%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1em; }
+    .bot-message { background-color: #444444; color: #d4d4d4; align-self: flex-start; border-bottom-left-radius: 4px; }
+    .message span { display: inline-block; }
+    .sql-query { background-color: #2d2d2d; padding: 8px 12px; border-radius: 4px; margin-top: 8px; border: 1px solid #555; color: #9cdcfe; display: block; /* Ensure it takes block space */ }
+
+    /* Input Area Styles */
+    .chat-input-area { display: flex; padding: 15px; border-top: 1px solid #3a3a3a; background-color: #333333; flex-shrink: 0; }
+    .chat-input-area input { flex-grow: 1; padding: 10px 15px; border: 1px solid #555; border-radius: 20px; background-color: #3c3c3c; color: #d4d4d4; font-size: 1em; outline: none; margin-right: 10px; }
+    .chat-input-area input:focus { border-color: #007acc; }
+    .chat-input-area input:disabled { background-color: #4a4a4a; cursor: not-allowed;}
+    .chat-input-area button { padding: 10px 20px; background-color: #007acc; color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 1em; transition: background-color 0.2s ease; }
+    .chat-input-area button:hover:not(:disabled) { background-color: #005fa3; }
+    .chat-input-area button:disabled { background-color: #555; cursor: not-allowed; }
